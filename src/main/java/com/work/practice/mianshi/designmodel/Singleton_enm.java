@@ -1,4 +1,4 @@
-package work.wk.mianshi.designmodel;
+package com.work.practice.mianshi.designmodel;
 
 /**
  * Created by wkhuahuo on 2017/3/4.

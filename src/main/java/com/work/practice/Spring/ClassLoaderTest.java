@@ -1,4 +1,4 @@
-package work.wk.Spring;
+package com.work.practice.Spring;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

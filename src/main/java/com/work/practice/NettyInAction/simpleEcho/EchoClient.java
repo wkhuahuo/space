@@ -1,4 +1,4 @@
-package work.wk.NettyInAction.simpleEcho;
+package com.work.practice.NettyInAction.simpleEcho;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

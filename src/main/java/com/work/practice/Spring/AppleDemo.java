@@ -1,4 +1,4 @@
-package work.wk.Spring;
+package com.work.practice.Spring;
 
 /**
  * Created by wkhuahuo on 2017/3/7.

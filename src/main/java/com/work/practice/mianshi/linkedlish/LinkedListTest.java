@@ -1,4 +1,4 @@
-package work.wk.mianshi.linkedlish;
+package com.work.practice.mianshi.linkedlish;
 
 import java.util.LinkedList;
 

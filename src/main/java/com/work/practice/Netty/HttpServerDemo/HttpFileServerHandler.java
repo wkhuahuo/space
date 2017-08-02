@@ -1,4 +1,4 @@
-package work.wk.Netty.HttpServerDemo;
+package com.work.practice.Netty.HttpServerDemo;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelProgressiveFuture;

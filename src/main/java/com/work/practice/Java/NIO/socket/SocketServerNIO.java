@@ -1,4 +1,4 @@
-package work.wk.Java.NIO.socket;
+package com.work.practice.Java.NIO.socket;
 
 import com.sun.org.apache.bcel.internal.generic.Select;
 

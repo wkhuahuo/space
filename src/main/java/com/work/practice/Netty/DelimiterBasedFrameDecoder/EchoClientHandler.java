@@ -1,4 +1,4 @@
-package work.wk.Netty.DelimiterBasedFrameDecoder;
+package com.work.practice.Netty.DelimiterBasedFrameDecoder;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;

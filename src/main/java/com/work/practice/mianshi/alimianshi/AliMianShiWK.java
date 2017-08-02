@@ -1,4 +1,4 @@
-package work.wk.mianshi.alimianshi;
+package com.work.practice.mianshi.alimianshi;
 
 /**
  * Created by wkhuahuo on 2017/3/3.

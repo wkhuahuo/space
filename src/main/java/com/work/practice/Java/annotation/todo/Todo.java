@@ -1,4 +1,4 @@
-package work.wk.Java.annotation.todo;
+package com.work.practice.Java.annotation.todo;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

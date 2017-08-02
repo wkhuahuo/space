@@ -1,4 +1,4 @@
-package work.wk.mianshi.catchException;
+package com.work.practice.mianshi.catchException;
 
 /**
  * Created by wkhuahuo on 19/02/17.

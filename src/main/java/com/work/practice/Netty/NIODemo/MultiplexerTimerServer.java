@@ -1,4 +1,4 @@
-package work.wk.Netty.NIODemo;
+package com.work.practice.Netty.NIODemo;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

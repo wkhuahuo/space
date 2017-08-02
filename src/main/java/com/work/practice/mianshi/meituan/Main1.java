@@ -1,4 +1,4 @@
-package work.wk.mianshi.meituan;
+package com.work.practice.mianshi.meituan;
 
 /**
  * Created by wkhuahuo on 2017/3/21.

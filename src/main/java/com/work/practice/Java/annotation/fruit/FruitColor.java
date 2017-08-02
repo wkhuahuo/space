@@ -1,4 +1,4 @@
-package work.wk.Java.annotation.fruit;
+package com.work.practice.Java.annotation.fruit;
 
 import java.lang.annotation.*;
 

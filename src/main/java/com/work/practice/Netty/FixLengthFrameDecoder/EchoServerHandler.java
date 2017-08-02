@@ -1,4 +1,4 @@
-package work.wk.Netty.FixLengthFrameDecoder;
+package com.work.practice.Netty.FixLengthFrameDecoder;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;

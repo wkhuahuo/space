@@ -1,4 +1,4 @@
-package work.wk.Netty.FixLengthFrameDecoder;
+package com.work.practice.Netty.FixLengthFrameDecoder;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

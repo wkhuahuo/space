@@ -1,4 +1,4 @@
-package work.wk.Netty.TCPDemoUnNianBao;
+package com.work.practice.Netty.TCPDemoUnNianBao;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;

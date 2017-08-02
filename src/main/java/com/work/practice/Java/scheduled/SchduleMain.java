@@ -1,4 +1,4 @@
-package work.wk.Java.scheduled;
+package com.work.practice.Java.scheduled;
 
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;

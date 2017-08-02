@@ -1,4 +1,4 @@
-package work.wk.mianshi.classloading;
+package com.work.practice.mianshi.classloading;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,7 +30,7 @@ public class ClassLoaderTest {
         Object obj = myLoader.loadClass("work.practice.mianshi.classloading.ConstClass").newInstance();
         System.out.println(obj.getClass());
         System.out.println(obj.getClass().getClassLoader());
-        System.out.println(obj instanceof work.wk.mianshi.classloading.ConstClass);
+        System.out.println(obj instanceof ConstClass);
 
         //Object o = java.lang.ClassLoader;
 

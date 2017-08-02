@@ -1,4 +1,4 @@
-package work.wk.mianshi.javaCandy;
+package com.work.practice.mianshi.javaCandy;
 
 /**
  * Created by wkhuahuo on 2017/3/5.

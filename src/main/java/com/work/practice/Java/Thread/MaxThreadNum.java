@@ -1,4 +1,4 @@
-package work.wk.Java.Thread;
+package com.work.practice.Java.Thread;
 
 /**
  * Created by wangkai43 on 2017/7/12.

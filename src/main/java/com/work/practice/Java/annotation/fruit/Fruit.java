@@ -1,6 +1,4 @@
-package work.wk.Java.annotation.fruit;
-
-import static com.sun.corba.se.spi.activation.IIOP_CLEAR_TEXT.value;
+package com.work.practice.Java.annotation.fruit;
 
 /**
  * Created by wangkai43 on 2017/6/21.

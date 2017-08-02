@@ -1,4 +1,4 @@
-package work.wk.Netty.encodeDecodeClass;
+package com.work.practice.Netty.encodeDecodeClass;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

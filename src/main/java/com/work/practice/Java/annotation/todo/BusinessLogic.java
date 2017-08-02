@@ -1,4 +1,4 @@
-package work.wk.Java.annotation.todo;
+package com.work.practice.Java.annotation.todo;
 
 /**
  * Created by wangkai43 on 2017/6/21.

@@ -1,4 +1,4 @@
-package work.wk.Java.interfaceAndAbstract;
+package com.work.practice.Java.interfaceAndAbstract;
 
 import org.junit.Test;
 

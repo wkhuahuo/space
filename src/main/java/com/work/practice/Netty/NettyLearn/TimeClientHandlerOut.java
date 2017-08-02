@@ -1,4 +1,4 @@
-package work.wk.Netty.NettyLearn;
+package com.work.practice.Netty.NettyLearn;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

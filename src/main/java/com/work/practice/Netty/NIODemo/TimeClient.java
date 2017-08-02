@@ -1,4 +1,4 @@
-package work.wk.Netty.NIODemo;
+package com.work.practice.Netty.NIODemo;
 
 /**
  * Created by wangkai43 on 2017/7/7.

@@ -1,10 +1,4 @@
-package work.wk.mianshi.designmodel;
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.lang.reflect.Constructor;
+package com.work.practice.mianshi.designmodel;
 
 /**
  * Created by wkhuahuo on 2017/3/5.

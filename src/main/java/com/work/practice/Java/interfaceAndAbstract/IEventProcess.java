@@ -1,4 +1,4 @@
-package work.wk.Java.interfaceAndAbstract;
+package com.work.practice.Java.interfaceAndAbstract;
 
 /**
  * Created by wangkai43 on 2017/6/20.

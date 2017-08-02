@@ -1,4 +1,4 @@
-package work.wk.mianshi.wangyi;
+package com.work.practice.mianshi.wangyi;
 import java.util.Scanner;
 /**
  * Created by wkhuahuo on 2017/3/25.

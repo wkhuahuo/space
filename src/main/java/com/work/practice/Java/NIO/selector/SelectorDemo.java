@@ -1,4 +1,4 @@
-package work.wk.Java.NIO.selector;
+package com.work.practice.Java.NIO.selector;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

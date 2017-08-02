@@ -1,4 +1,4 @@
-package work.wk.mianshi.designmodel;
+package com.work.practice.mianshi.designmodel;
 
 import java.io.ObjectStreamException;
 

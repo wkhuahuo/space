@@ -1,4 +1,4 @@
-package work.wk.mianshi.alimianshi;
+package com.work.practice.mianshi.alimianshi;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package work.wk.Netty.DelimiterBasedFrameDecoder;
+package com.work.practice.Netty.DelimiterBasedFrameDecoder;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;

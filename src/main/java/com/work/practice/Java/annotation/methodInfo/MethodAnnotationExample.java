@@ -1,4 +1,4 @@
-package work.wk.Java.annotation.methodInfo;
+package com.work.practice.Java.annotation.methodInfo;
 
 /**
  * Created by wangkai43 on 2017/6/21.

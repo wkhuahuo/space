@@ -1,4 +1,4 @@
-package work.wk.mianshi.map;
+package com.work.practice.mianshi.map;
 
 import java.util.HashMap;
 import java.util.Map;

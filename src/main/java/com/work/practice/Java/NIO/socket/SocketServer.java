@@ -1,4 +1,4 @@
-package work.wk.Java.NIO.socket;
+package com.work.practice.Java.NIO.socket;
 
 import java.io.IOException;
 import java.io.InputStream;

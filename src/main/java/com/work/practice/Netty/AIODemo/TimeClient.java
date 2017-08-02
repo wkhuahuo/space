@@ -1,4 +1,4 @@
-package work.wk.Netty.AIODemo;
+package com.work.practice.Netty.AIODemo;
 
 /**
  * Created by wangkai43 on 2017/7/9.

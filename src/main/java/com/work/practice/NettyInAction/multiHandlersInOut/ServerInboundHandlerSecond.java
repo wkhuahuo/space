@@ -1,4 +1,4 @@
-package work.wk.NettyInAction.multiHandlersInOut;
+package com.work.practice.NettyInAction.multiHandlersInOut;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

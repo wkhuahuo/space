@@ -1,4 +1,4 @@
-package work.wk.Java.annotation.methodInfo;
+package com.work.practice.Java.annotation.methodInfo;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package work.wk.mianshi.tengxun;
+package com.work.practice.mianshi.tengxun;
 
 /**
  *

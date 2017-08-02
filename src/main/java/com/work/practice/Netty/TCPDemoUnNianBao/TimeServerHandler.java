@@ -1,4 +1,4 @@
-package work.wk.Netty.TCPDemoUnNianBao;
+package com.work.practice.Netty.TCPDemoUnNianBao;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

@@ -1,4 +1,4 @@
-package work.wk.slf4j;
+package com.work.practice.slf4j;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

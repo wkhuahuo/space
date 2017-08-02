@@ -1,4 +1,4 @@
-package work.wk.mianshi.classloading;
+package com.work.practice.mianshi.classloading;
 
 /**
  *被动使用类字段演示一：

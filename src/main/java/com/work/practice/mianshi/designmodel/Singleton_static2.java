@@ -1,6 +1,6 @@
-package work.wk.mianshi.designmodel;
+package com.work.practice.mianshi.designmodel;
 
-import com.wk.batAlgorithm.dynamicprogramming.Exchange;
+
 
 import java.io.*;
 

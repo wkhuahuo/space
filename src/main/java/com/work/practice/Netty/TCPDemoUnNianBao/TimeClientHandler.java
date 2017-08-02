@@ -1,10 +1,10 @@
-package work.wk.Netty.TCPDemoUnNianBao;
+package com.work.practice.Netty.TCPDemoUnNianBao;
 
+import com.work.practice.Netty.NIODemo.TimeClientHandle;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import work.wk.Netty.NIODemo.TimeClientHandle;
 
 import java.util.logging.Logger;
 

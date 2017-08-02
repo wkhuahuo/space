@@ -1,4 +1,4 @@
-package work.wk.mianshi.toutiao;
+package com.work.practice.mianshi.toutiao;
 
 import java.util.Scanner;
 

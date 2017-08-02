@@ -1,4 +1,4 @@
-package work.wk.Java.NIO.channel;
+package com.work.practice.Java.NIO.channel;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

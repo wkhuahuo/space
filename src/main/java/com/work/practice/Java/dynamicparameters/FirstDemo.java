@@ -1,4 +1,4 @@
-package work.wk.Java.dynamicparameters;
+package com.work.practice.Java.dynamicparameters;
 
 /**
  * Created by wangkai43 on 2017/7/21.

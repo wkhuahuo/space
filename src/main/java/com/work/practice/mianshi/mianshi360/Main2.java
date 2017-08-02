@@ -1,4 +1,4 @@
-package work.wk.mianshi.mianshi360;
+package com.work.practice.mianshi.mianshi360;
 
 import java.util.Scanner;
 
