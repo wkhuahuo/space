@@ -6,7 +6,7 @@ package com.algorithm.batAlgorithm.linkedlist;
 public class ListNode {
     int val;
     ListNode next = null;
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 }

@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.dynamicprogramming;
+package com.algorithm.batAlgorithm.dynamicprogramming;
 
 import org.junit.Test;
 

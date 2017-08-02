@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.binaryTree;
+package com.algorithm.batAlgorithm.binaryTree;
 
 import org.junit.Test;
 

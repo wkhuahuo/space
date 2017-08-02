@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.binaryTree;
+package com.algorithm.batAlgorithm.binaryTree;
 
 /**
  * Created by wkhuahuo on 14/02/17.

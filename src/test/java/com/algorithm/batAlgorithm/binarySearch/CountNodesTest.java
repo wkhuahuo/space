@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.binarySearch;
+package com.algorithm.batAlgorithm.binarySearch;
 
 import org.junit.Test;
 

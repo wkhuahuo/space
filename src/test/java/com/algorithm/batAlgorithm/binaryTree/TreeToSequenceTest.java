@@ -1,12 +1,8 @@
-package com.wk.batAlgorithm.binaryTree;
+package com.algorithm.batAlgorithm.binaryTree;
 
-import com.wk.swordoffer.test.LinkList;
 import org.junit.Test;
-import sun.reflect.generics.tree.Tree;
 
-import javax.sound.midi.Sequence;
 import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  * Created by wkhuahuo on 22/01/17.

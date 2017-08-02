@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.string;
+package com.algorithm.batAlgorithm.string;
 
 import junit.framework.Assert;
 import org.junit.Before;

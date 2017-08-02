@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.probability;
+package com.algorithm.batAlgorithm.probability;
 
 import org.junit.Test;
 

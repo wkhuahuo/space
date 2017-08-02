@@ -1,6 +1,5 @@
-package com.wk.batAlgorithm.stackAndSequence.practice;
+package com.algorithm.batAlgorithm.stackAndSequence.practice;
 
-import com.sun.org.apache.bcel.internal.generic.ARRAYLENGTH;
 import org.junit.Test;
 
 import java.util.ArrayList;

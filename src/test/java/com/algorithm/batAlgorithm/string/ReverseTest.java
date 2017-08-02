@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.string;
+package com.algorithm.batAlgorithm.string;
 
 import org.junit.Test;
 

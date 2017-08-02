@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.sort.practice;
+package com.algorithm.batAlgorithm.sort.practice;
 
 import org.junit.Assert;
 import org.junit.Test;

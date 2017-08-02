@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.permutationAndCombination;
+package com.algorithm.batAlgorithm.permutationAndCombination;
 
 import org.junit.Test;
 

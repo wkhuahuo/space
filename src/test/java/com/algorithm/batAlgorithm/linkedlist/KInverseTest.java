@@ -1,5 +1,4 @@
-package com.wk.batAlgorithm.linkedlist;
-
+package com.algorithm.batAlgorithm.linkedlist;
 import org.junit.Test;
 
 /**
@@ -7,7 +6,7 @@ import org.junit.Test;
  */
 public class KInverseTest {
 
-    public static ListNode initListNode(int n,int range){
+    public static ListNode initListNode(int n, int range){
         ListNode head = new ListNode((int)(Math.random()*range));
         ListNode point =head;
         for(int i=1;i<n;i++){

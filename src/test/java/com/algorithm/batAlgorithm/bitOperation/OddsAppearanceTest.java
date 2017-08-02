@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.bitOperation;
+package com.algorithm.batAlgorithm.bitOperation;
 
 import org.junit.Test;
 

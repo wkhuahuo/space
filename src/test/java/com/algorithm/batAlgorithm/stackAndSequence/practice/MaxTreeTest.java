@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.stackAndSequence.practice;
+package com.algorithm.batAlgorithm.stackAndSequence.practice;
 
 import org.junit.Test;
 

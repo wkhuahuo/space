@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.linkedlist;
+package com.algorithm.batAlgorithm.linkedlist;
 
 import org.junit.Test;
 

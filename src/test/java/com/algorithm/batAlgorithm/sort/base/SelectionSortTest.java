@@ -1,4 +1,4 @@
-package com.wk.batAlgorithm.sort.base;
+package com.algorithm.batAlgorithm.sort.base;
 
 import junit.framework.TestCase;
 

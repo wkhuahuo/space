@@ -1,4 +1,5 @@
-package com.wk.batAlgorithm.linkedlist;
+package com.algorithm.batAlgorithm.linkedlist;
+
 
 import org.junit.Test;
 
@@ -8,7 +9,7 @@ import java.util.Arrays;
  * Created by wkhuahuo on 16/12/21.
  */
 public class CommonTest {
-    public static ListNode initListNode(int n,int step){
+    public static ListNode initListNode(int n, int step){
         ListNode head = new ListNode(0+(int)(1+Math.random()*(step+1-1)));
         ListNode point =head;
         for(int i=1;i<n*step;i+=step){

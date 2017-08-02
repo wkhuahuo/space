@@ -1,6 +1,5 @@
-package com.wk.batAlgorithm.linkedlist;
+package com.algorithm.batAlgorithm.linkedlist;
 
-import junit.framework.Assert;
 import org.junit.Test;
 
 

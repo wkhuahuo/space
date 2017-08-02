@@ -1,6 +1,4 @@
-package com.wk.batAlgorithm.linkedlist;
-
-import org.junit.Test;
+package com.algorithm.batAlgorithm.linkedlist;
 
 /**
  * Created by wkhuahuo on 09/01/17.
