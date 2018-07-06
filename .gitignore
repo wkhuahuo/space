@@ -28,6 +28,7 @@ build/
 logs/
 classes/
 src/main/resources/node_modules
+target/
 
 # Compiled class file
 *.class
@@ -49,3 +50,5 @@ src/main/resources/node_modules
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+# other ingnor
+*.hprof
