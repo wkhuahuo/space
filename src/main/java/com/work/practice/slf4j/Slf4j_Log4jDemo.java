@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
  * Created by wangkai43 on 2017/8/2.
  */
 public class Slf4j_Log4jDemo {
-    private final Logger logger = LoggerFactory.getLogger(Log4jDemo.class);
+    private final Logger logger = LoggerFactory.getLogger(Slf4j_Log4jDemo.class);
     Integer t;
     Integer oldT;
     public void setTemperature(Integer temperature){
@@ -36,7 +36,7 @@ public class Slf4j_Log4jDemo {
     }
     public static void main(String[] args){
 
-        System.setProperty("log4j.configuration", "log4j/log4j.properties");
+        System.setProperty("log4j.configuration", "log4j2.xml");
         Slf4j_Log4jDemo slf4j_log4jDemo = new Slf4j_Log4jDemo();
         slf4j_log4jDemo.setTemperature(1);
         slf4j_log4jDemo.setTemperature(55);

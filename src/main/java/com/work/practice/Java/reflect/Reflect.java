@@ -1,9 +1,8 @@
 package com.work.practice.Java.reflect;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+
 import com.alibaba.fastjson.JSON;
 /**
  * Created by wangkai43 on 2017/6/21.
@@ -44,6 +43,9 @@ public class Reflect {
             e.printStackTrace();
         }
         System.out.println(beanModel);
+
+        ArrayList<String> list =new  ArrayList<>();
+        list.toArray();
 
     }
     

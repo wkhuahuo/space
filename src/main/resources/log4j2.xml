@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <!--这个输出控制台的配置-->
+        <console name="Console" target="SYSTEM_OUT">
+
+            <!--输出日志的格式-->
+            <PatternLayout pattern="[%d{YYYY-mm-dd HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+            <Filters>
+                <SensitiveDataFilter enabled="true" onMatch="NEUTRAL" onMismatch="DENY"/>
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+
+
+        </console>
+
+    </Appenders>
+    <Loggers>
+        <Logger name="org.apache.log4j.xml" level="info"/>
+
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+
+        </Root>
+    </Loggers>
+</Configuration>
