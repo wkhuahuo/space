@@ -7,7 +7,7 @@
             <!--输出日志的格式-->
             <PatternLayout pattern="[%d{YYYY-mm-dd HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
             <Filters>
-                <SensitiveDataFilter enabled="true" onMatch="NEUTRAL" onMismatch="DENY"/>
+                <!--<SensitiveDataFilter enabled="true" onMatch="NEUTRAL" onMismatch="DENY"/>-->
                 <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
 
@@ -15,6 +15,10 @@
         </console>
 
     </Appenders>
+
+    <Filters>
+        <!--<SensitiveDataFilter enabled="true" onMatch="NEUTRAL" onMismatch="DENY"/>-->
+    </Filters>
     <Loggers>
         <Logger name="org.apache.log4j.xml" level="info"/>
 

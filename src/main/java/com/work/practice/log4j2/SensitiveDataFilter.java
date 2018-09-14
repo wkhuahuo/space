@@ -91,7 +91,9 @@ public class SensitiveDataFilter extends AbstractFilter {
     public Result filter(final Logger logger, final Level level, final Marker marker, final String msg,
                          final Object p0, final Object p1, final Object p2) {
 
-        System.out.println(">>>>>>>>nature seven");
+        System.out.println(">>>>>>>>nature seven "+ msg + p0+ p1 + p2 );
+
+
         return filter(logger, level, marker, msg, new Object[] {p0, p1, p2});
     }
 
@@ -157,7 +159,7 @@ public class SensitiveDataFilter extends AbstractFilter {
     @Override
     public Result filter(Logger logger, Level level, Marker marker, String msg, Object... params) {
 
-        System.out.println(">>>>>>msg = msg");
+        System.out.println(">>>>>>msg Object params");
 
         if (this.enabled == false) {
             return onMatch;
