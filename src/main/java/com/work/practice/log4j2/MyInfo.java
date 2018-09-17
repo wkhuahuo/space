@@ -12,4 +12,13 @@ public class MyInfo {
     public String idNo = "410882199302078539";
 
     public String name = "wkhuahuo";
+
+    @Override
+    public String toString() {
+        return "MyInfo{" +
+                "phone='" + phone + '\'' +
+                ", idNo='" + idNo + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

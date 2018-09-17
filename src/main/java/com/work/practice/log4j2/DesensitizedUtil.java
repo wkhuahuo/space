@@ -1,10 +1,9 @@
 package com.work.practice.log4j2;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import org.apache.logging.log4j.util.StringBuilderFormattable;
+import com.sun.org.glassfish.gmbal.ManagedObject;
 
+import java.lang.reflect.Field;
 import java.util.*;
 
 /**
@@ -19,30 +18,93 @@ public class DesensitizedUtil {
     private static final String RECURSION_PREFIX = "[...";
     private static final String RECURSION_SUFFIX = "...]";
 
-    enum SensitiveParam {
-        phone,
-        name,
-        idNo,
-        personInfo
+    enum SensitiveParamEnum {
+        phone("phone") {
+            @Override
+            public String desensitizedRule(){
+                return "";
+            }
+        },
+        name("name") {
+            @Override
+            public String desensitizedRule(){
+                return "";
+            }
+        },
+        idNo("idNo") {
+            @Override
+            public String desensitizedRule(){
+                return "";
+            }
+        },
+        personInfo("personInfo") {
+            @Override
+            public String desensitizedRule(){
+                return "";
+            }
+        },
+
+        unknow("unknow") {
+            @Override
+            public String desensitizedRule(){
+                return "";
+            }
+        }
         ;
+
+        private String code;
+        SensitiveParamEnum(String code){
+            this.code = code;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        private static Map<String, SensitiveParamEnum> enumMap = new HashMap<>();
+        public abstract String desensitizedRule();
+
+        static {
+            for (SensitiveParamEnum param : SensitiveParamEnum.values()) {
+                enumMap.put(param.getCode(), param);
+            }
+        }
+        public static SensitiveParamEnum getRuleByCode(String code) {
+            SensitiveParamEnum sensitiveParamEnum = enumMap.get(code);
+            if(sensitiveParamEnum == null ){
+                sensitiveParamEnum = SensitiveParamEnum.unknow;
+            }
+            return sensitiveParamEnum;
+        }
+
+
     }
 
-
-    public static boolean needDesent(Object objKey){
+    public static boolean isStrContainsSensitivePrarm(Object objKey) {
         String key = "";
-        if(objKey instanceof String) {
+
+        if(objKey instanceof String) {//如果为字符串
             String str = (String)objKey;
             if (str == null || "".equals(str)) {
                 return false;
             }
             key = (String) objKey;
-        } else {
+        } else {//当不为字符串时转变为字符串
             // 是否可以优化？
             key = JSON.toJSONString(objKey);
         }
+        for (SensitiveParamEnum sen : SensitiveParamEnum.values()){
+            if(key.contains(sen.getCode())){
+                return true;
+            }
+        }
+        return false;
+    }
 
-        for (SensitiveParam param : SensitiveParam.values()) {
-            if (key.contains(param.name())) {
+    public static boolean keyNeedDesent(Object objKey){
+        if(objKey instanceof String) {//如果为字符串
+            SensitiveParamEnum sensitiveParamEnum = SensitiveParamEnum.getRuleByCode((String) objKey);
+            if(SensitiveParamEnum.unknow != sensitiveParamEnum){
                 return true;
             }
         }
@@ -50,7 +112,11 @@ public class DesensitizedUtil {
     }
 
 
-
+    /**
+     * 特殊类型的脱敏处理。
+     * @param obj
+     * @return 字符串
+     */
     public static Object desensitizeSpecialTypes(Object obj){
 
         if (obj == null || obj instanceof String) {
@@ -73,9 +139,14 @@ public class DesensitizedUtil {
         return obj;
     }
 
+    /**
+     * 脱敏Java类
+     * @param obj
+     * @return
+     */
     public static Object desensitizeObject(Object obj) {
-        Object deObj = desensitizeSpecialTypes(obj);
         // 如果是特定的几种类型那么一定会被转成String
+        Object deObj = desensitizeSpecialTypes(obj);
         if (deObj instanceof String ){
             return deObj;
         } else if (isArray(deObj)) {
@@ -85,9 +156,42 @@ public class DesensitizedUtil {
         } else if (deObj instanceof Collection) {
             return SENSITIVE+" "+deObj.getClass().getName()+" size="+((Collection)deObj).size()+" "+identityToString(deObj);
         } else {
-            deObj = SENSITIVE+identityToString(deObj);
+            Object result = desensitizeClass(obj);
+            if(result instanceof String){
+                return result;
+            }else {
+                deObj = SENSITIVE + identityToString(deObj);
+            }
         }
         return deObj;
+    }
+
+    /**
+     * 如果需要对一个普通javaBean进行脱敏需要得到每一个属性
+     * @param obj
+     * @return
+     */
+    public static Object desensitizeClass(Object obj) {
+        Class c = obj.getClass();
+        Map<String, Object> result = new HashMap<>();
+        Field[] fields= c.getFields();
+        for(Field field : fields) {
+            field.setAccessible(true);
+            String name = field.getName();
+            Object value = "";
+            try {
+                if(keyNeedDesent(name)) {
+                    Object fo = field.get(obj);
+                    value = desensitizeObject(fo);
+                    result.put(name, value);
+                } else {
+                    result.put(name,field.get(obj));
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        return JSON.toJSONString(result);
     }
 
     /**
@@ -132,7 +236,7 @@ public class DesensitizedUtil {
             final Map.Entry<?, ?> current = (Map.Entry<?, ?>) o1;
             final Object key = current.getKey();
             final Object value = current.getValue();
-            if(DesensitizedUtil.needDesent(key)){
+            if(DesensitizedUtil.keyNeedDesent(key)){
                 Object desenobj = DesensitizedUtil.desensitizeObject(value);
                 oMap.put(current.getKey(), desenobj);
             }
@@ -171,6 +275,11 @@ public class DesensitizedUtil {
         }
     }
 
+    /**
+     * 判断是否是数组
+     * @param obj
+     * @return
+     */
     private static boolean isArray(Object obj) {
         final Class<?> oClass = obj.getClass();
         if (oClass.isArray()) {
@@ -243,7 +352,7 @@ public class DesensitizedUtil {
     }
 
     /**
-     * 对一个字符串的脱敏处理
+     * 对一个普通字符串的脱敏处理
      * @param str
      * @return
      */
@@ -259,6 +368,9 @@ public class DesensitizedUtil {
         }
         return "";
     }
+
+
+
 
     private static String identityToString(final Object obj) {
         if (obj == null) {

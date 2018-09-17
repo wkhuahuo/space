@@ -22,10 +22,29 @@ public class LogTest {
     public static void main(String[] args) {
         //print();
         //printMap();
-        printMapinObj();
+        //printMapinObj();
         //printArray();
+        //printObject();
+        //printJsonObjectStr();
+        printJsonArrayStr();
 
 
+    }
+
+    private static void printJsonArrayStr(){
+        String[] arr = {"123456","654321","987"};
+        logger.info("arr:{}", JSON.toJSONString(arr));
+        logger.info("phone:{}", JSON.toJSONString(arr));
+    }
+
+
+    private static void printJsonObjectStr(){
+        MyInfo info = new MyInfo();
+        logger.info("myInfo{}", JSON.toJSONString(info));
+    }
+    private static void printObject() {
+        MyInfo info = new MyInfo();
+        logger.info("myInfo:{}", info);
     }
 
     private static void printMap() {

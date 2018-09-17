@@ -1,6 +1,7 @@
 package com.work.practice.log4j2;
 
-import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.logging.log4j.util.StringBuilderFormattable;
 import org.apache.logging.log4j.util.StringBuilders;
 
@@ -174,7 +175,8 @@ class DesensitizedParameterizedFormatter {
         // 4. 如果是一个Object，对其进行JSON化转成Map，获取关键词对应的value值。
         for (int i = 0; i < argCount; i++) {
             nextPart = messagePattern.substring(previous, indices[i]);
-            if(needDesensitizeed(nextPart)){
+
+            if(isStrNeedDesensitizeed(nextPart)){//可考虑是否去掉
                 buffer.append(nextPart);
                 previous = indices[i] + 2;
                 Object result = DesensitizedUtil.desensitizeSpecialTypes(arguments[i]);
@@ -188,8 +190,8 @@ class DesensitizedParameterizedFormatter {
         buffer.append(messagePattern, previous, messagePattern.length());
     }
 
-    private static boolean needDesensitizeed(String nextPart) {
-        return DesensitizedUtil.needDesent(nextPart);
+    private static boolean isStrNeedDesensitizeed(String nextPart) {
+        return DesensitizedUtil.isStrContainsSensitivePrarm(nextPart);
     }
 
 
@@ -467,7 +469,7 @@ class DesensitizedParameterizedFormatter {
         if (isMaybeRecursive(o)) {
             myAppendPotentiallyRecursiveValue(o, str, dejaVu);
         } else {
-            tryObjectToString(o, str);
+            myTryObjectToString(o, str);
         }
     }
 
@@ -479,9 +481,28 @@ class DesensitizedParameterizedFormatter {
         return myAppendSpecificTypes(str, o) || appendDate(o, str);
     }
 
+    private static boolean isJSONObject(final Object obj){
+        if(obj == null || obj instanceof String ) {
+            return false;
+        }
+        try {
+            JSONObject.parseObject((String) obj);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     private static boolean myAppendSpecificTypes(final StringBuilder stringBuilder, final Object obj) {
         if (obj == null || obj instanceof String) {
-            stringBuilder.append((String) obj);
+
+            try {
+                JSONObject jsonStr = JSONObject.parseObject((String) obj);
+                stringBuilder.append(DesensitizedUtil.desensitizeObject(jsonStr));
+            } catch (Exception e){
+
+                stringBuilder.append((String) obj);
+            }
         } else if (obj instanceof StringBuilderFormattable) {
             ((StringBuilderFormattable) obj).formatTo(stringBuilder);
         } else if (obj instanceof CharSequence) {
@@ -663,9 +684,16 @@ class DesensitizedParameterizedFormatter {
     private static void tryObjectToString(final Object o, final StringBuilder str) {
         // it's just some other Object, we can only use toString().
         try {
-
-
             str.append(o.toString());
+        } catch (final Throwable t) {
+            handleErrorInObjectToString(o, str, t);
+        }
+    }
+
+    private static void myTryObjectToString(final Object o, final StringBuilder str) {
+        // it's just some other Object, we can only use toString().
+        try {
+            str.append(DesensitizedUtil.desensitizeClass(o));
         } catch (final Throwable t) {
             handleErrorInObjectToString(o, str, t);
         }
