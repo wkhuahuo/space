@@ -77,7 +77,6 @@ public class DesensitizedUtil {
             return sensitiveParamEnum;
         }
 
-
     }
 
     public static boolean isStrContainsSensitivePrarm(Object objKey) {

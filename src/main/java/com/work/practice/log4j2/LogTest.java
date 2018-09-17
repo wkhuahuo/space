@@ -1,8 +1,11 @@
 package com.work.practice.log4j2;
 
 import com.alibaba.fastjson.JSON;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +20,8 @@ import java.util.Map;
  */
 public class LogTest {
 
-    private final static Logger logger = LogManager.getLogger(LogTest.class);
+    //private final static Logger logger = LogManager.getLogger(LogTest.class);
+    private final static Logger logger = LoggerFactory.getLogger(LogTest.class);
 
     public static void main(String[] args) {
         //print();
@@ -25,8 +29,8 @@ public class LogTest {
         //printMapinObj();
         //printArray();
         //printObject();
-        //printJsonObjectStr();
-        printJsonArrayStr();
+        printJsonObjectStr();
+        //printJsonArrayStr();
 
 
     }

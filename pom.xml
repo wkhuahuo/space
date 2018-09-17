@@ -47,6 +47,17 @@
             <version>2.11.1</version>
         </dependency>
 
+        <dependency> <!-- 桥接：告诉Slf4j使用Log4j2 -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.11.1</version>
+        </dependency>
+
+        <dependency> <!-- 桥接：告诉commons logging使用Log4j2 -->
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-jcl</artifactId>
+            <version>2.2</version>
+        </dependency>
 
         <dependency>
             <groupId>io.netty</groupId>
