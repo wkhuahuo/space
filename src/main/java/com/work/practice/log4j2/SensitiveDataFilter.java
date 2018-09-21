@@ -17,10 +17,12 @@ import org.apache.logging.log4j.message.Message;
 import static org.apache.logging.log4j.message.ParameterizedMessage.deepToString;
 
 /**
+ * 使用过滤器过滤包含敏感字段的日志信息。该过滤器暂时没有实现脱敏。该方法不推荐使用。
  * @author wangkai43
  * @create 2018-09-12-19:47
  * @email wangkai43@meituan.com
  */
+@Deprecated
 @Plugin(name = "SensitiveDataFilter", category = Node.CATEGORY, elementType = Filter.ELEMENT_TYPE, printObject = true)
 public class SensitiveDataFilter extends AbstractFilter {
     private static final long serialVersionUID = 1L;

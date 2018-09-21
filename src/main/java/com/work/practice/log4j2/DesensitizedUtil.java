@@ -1,10 +1,12 @@
 package com.work.practice.log4j2;
 
 import com.alibaba.fastjson.JSON;
-import com.sun.org.glassfish.gmbal.ManagedObject;
+import com.work.practice.log4j2.SensitiveParam;
 
 import java.lang.reflect.Field;
 import java.util.*;
+
+import static com.work.practice.log4j2.SensitiveRegisterEnum.SENSITIVE_REGISTER;
 
 /**
  * @author wangkai43
@@ -14,98 +16,31 @@ import java.util.*;
 public class DesensitizedUtil {
 
     private static final String SENSITIVE = "敏";
+    private static final String STAR = "***";
 
     private static final String RECURSION_PREFIX = "[...";
     private static final String RECURSION_SUFFIX = "...]";
 
-    enum SensitiveParamEnum {
-        phone("phone") {
-            @Override
-            public String desensitizedRule(){
-                return "";
-            }
-        },
-        name("name") {
-            @Override
-            public String desensitizedRule(){
-                return "";
-            }
-        },
-        idNo("idNo") {
-            @Override
-            public String desensitizedRule(){
-                return "";
-            }
-        },
-        personInfo("personInfo") {
-            @Override
-            public String desensitizedRule(){
-                return "";
-            }
-        },
 
-        unknow("unknow") {
-            @Override
-            public String desensitizedRule(){
-                return "";
-            }
-        }
-        ;
-
-        private String code;
-        SensitiveParamEnum(String code){
-            this.code = code;
-        }
-
-        public String getCode() {
-            return code;
-        }
-
-        private static Map<String, SensitiveParamEnum> enumMap = new HashMap<>();
-        public abstract String desensitizedRule();
-
-        static {
-            for (SensitiveParamEnum param : SensitiveParamEnum.values()) {
-                enumMap.put(param.getCode(), param);
-            }
-        }
-        public static SensitiveParamEnum getRuleByCode(String code) {
-            SensitiveParamEnum sensitiveParamEnum = enumMap.get(code);
-            if(sensitiveParamEnum == null ){
-                sensitiveParamEnum = SensitiveParamEnum.unknow;
-            }
-            return sensitiveParamEnum;
-        }
-
-    }
-
-    public static boolean isStrContainsSensitivePrarm(Object objKey) {
-        String key = "";
-
+    public static Object desenifKeyLikeSensitivePrarm(Object objKey, Object value) {
+        String param = "";
         if(objKey instanceof String) {//如果为字符串
             String str = (String)objKey;
             if (str == null || "".equals(str)) {
                 return false;
             }
-            key = (String) objKey;
+            param = (String) objKey;
         } else {//当不为字符串时转变为字符串
             // 是否可以优化？
-            key = JSON.toJSONString(objKey);
+            param = JSON.toJSONString(objKey);
         }
-        for (SensitiveParamEnum sen : SensitiveParamEnum.values()){
-            if(key.contains(sen.getCode())){
-                return true;
-            }
-        }
-        return false;
+        return SENSITIVE_REGISTER.desenByLikesKey(param, value);
+
     }
 
-    public static boolean keyNeedDesent(Object objKey){
+    public static boolean iskeyNeedDesent(Object objKey){
         if(objKey instanceof String) {//如果为字符串
-            SensitiveParamEnum sensitiveParamEnum = SensitiveParamEnum.getRuleByCode((String) objKey);
-            if(SensitiveParamEnum.unknow != sensitiveParamEnum){
-                return true;
-            }
+            return SENSITIVE_REGISTER.containsKey((String) objKey);
         }
         return false;
     }
@@ -141,7 +76,7 @@ public class DesensitizedUtil {
     /**
      * 脱敏Java类
      * @param obj
-     * @return
+     * @return String
      */
     public static Object desensitizeObject(Object obj) {
         // 如果是特定的几种类型那么一定会被转成String
@@ -179,9 +114,10 @@ public class DesensitizedUtil {
             String name = field.getName();
             Object value = "";
             try {
-                if(keyNeedDesent(name)) {
+                if(iskeyNeedDesent(name)) {
                     Object fo = field.get(obj);
-                    value = desensitizeObject(fo);
+                    SensitiveParam sensitiveParam = SENSITIVE_REGISTER.getSensitiveParamByName(name);
+                    value = sensitiveParam.desensitizedRule(fo);
                     result.put(name, value);
                 } else {
                     result.put(name,field.get(obj));
@@ -235,8 +171,15 @@ public class DesensitizedUtil {
             final Map.Entry<?, ?> current = (Map.Entry<?, ?>) o1;
             final Object key = current.getKey();
             final Object value = current.getValue();
-            if(DesensitizedUtil.keyNeedDesent(key)){
-                Object desenobj = DesensitizedUtil.desensitizeObject(value);
+            if(DesensitizedUtil.iskeyNeedDesent(key)){
+                Object desenobj = null;
+                if(key instanceof String) {
+                    SensitiveParam sensitiveParam = SENSITIVE_REGISTER.getSensitiveParamByName((String)key);
+                    desenobj = sensitiveParam.desensitizedRule(value);
+                } else {
+                    desenobj = DesensitizedUtil.desensitizeObject(value);
+                }
+
                 oMap.put(current.getKey(), desenobj);
             }
 

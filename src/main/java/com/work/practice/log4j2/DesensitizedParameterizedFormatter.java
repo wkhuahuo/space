@@ -1,6 +1,5 @@
 package com.work.practice.log4j2;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.logging.log4j.util.StringBuilderFormattable;
 import org.apache.logging.log4j.util.StringBuilders;
@@ -175,23 +174,16 @@ class DesensitizedParameterizedFormatter {
         // 4. 如果是一个Object，对其进行JSON化转成Map，获取关键词对应的value值。
         for (int i = 0; i < argCount; i++) {
             nextPart = messagePattern.substring(previous, indices[i]);
-
-            if(isStrNeedDesensitizeed(nextPart)){//可考虑是否去掉
-                buffer.append(nextPart);
-                previous = indices[i] + 2;
-                Object result = DesensitizedUtil.desensitizeSpecialTypes(arguments[i]);
-                myRecursiveDeepToString(result, buffer, null);
-            } else {
-                buffer.append(nextPart);
-                previous = indices[i] + 2;
-                myRecursiveDeepToString(arguments[i], buffer, null);
-            }
+            buffer.append(nextPart);
+            previous = indices[i] + 2;
+            Object result =desenifNextPartLikeSensitiveParam(nextPart,arguments[i]);
+            myRecursiveDeepToString(result, buffer, null);
         }
         buffer.append(messagePattern, previous, messagePattern.length());
     }
 
-    private static boolean isStrNeedDesensitizeed(String nextPart) {
-        return DesensitizedUtil.isStrContainsSensitivePrarm(nextPart);
+    private static Object desenifNextPartLikeSensitiveParam(String nextPart, Object obj) {
+        return DesensitizedUtil.desenifKeyLikeSensitivePrarm(nextPart, obj);
     }
 
 

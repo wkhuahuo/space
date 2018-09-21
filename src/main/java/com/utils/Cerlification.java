@@ -1,11 +1,11 @@
 package com.utils;
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.cert.Certificate;
