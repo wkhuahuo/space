@@ -19,9 +19,7 @@ public class FruitTest {
                 if(anno.annotationType() == FruitColor.class){
                     String fruitColor=((FruitColor) anno).color();
                     System.out.println("fruitcolor "+fruitColor);
-
                     fruit.setColor(fruitColor);
-
                 }
                 if(anno.annotationType() == FruitName.class){
                     String fruitName =((FruitName) anno).name();
